@@ -10,16 +10,17 @@ import tornado.ioloop
 import tornado.web
 
 #SetLogLevel(0)
-model = Model("model")
+#model = Model("model")
 
 class MainHandler(tornado.web.RequestHandler):
   def get(self):
     tm = time.time();
     self.write("Hell\n")   
-    self.write(str(self.recognize("./test.wav")))
+    #self.write(str(self.recognize("./test.wav")))
     self.write(str(time.time() - tm))
   def post(self):
-    sepf.write("post")
+    self.write("post1 ")
+    self.write(self.get_argument('body', 'no data'))
   def prepare(self):
     pass
     
